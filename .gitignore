@@ -8,3 +8,7 @@
 
 *.pem
 
+env/Dev/iac-dev
+env/Dev/iac-dev.pub
+env/Prod/iac-prod
+env/Prod/iac-prod.pub
