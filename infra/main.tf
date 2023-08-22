@@ -10,19 +10,19 @@ terraform {
 }
 
 provider "aws" {
-  region  = var.regiao_aws
+  region = var.regiao_aws
 }
 
 resource "aws_instance" "app_server" {
   ami           = "ami-053b0d53c279acc90"
   instance_type = var.instacia
-  key_name = var.chave
+  key_name      = var.chave
   tags = {
     Name = "Terraform Ansible Python"
   }
 }
 
-  resource "aws_key_pair" "chaveSSh" {
-    key_name = var.chave
-    public_key = file("${var.chave}.pub")
-  }
+resource "aws_key_pair" "chaveSSh" {
+  key_name   = var.chave
+  public_key = file("${var.chave}.pub")
+}
