@@ -9,3 +9,7 @@ variable "chave" {
 variable "instacia" {
   type = string
 }
+
+variable "ambiente" {
+  type = string
+}
