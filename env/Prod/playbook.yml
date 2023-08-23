@@ -13,7 +13,7 @@
       dest: /home/ubuntu/tcc
       version: master
       force: yes
-  - name: Instalando dependências com pip (Djando e Django Rest)
+  - name: Instalando dependências com pip
     pip: 
       virtualenv: /home/ubuntu/tcc/venv
       requirements: /home/ubuntu/tcc/requirements.txt
@@ -23,3 +23,7 @@
       regexp: 'ALLOWED_HOSTS'
       line: 'ALLOWED_HOSTS = ["*"]'
       backrefs: yes
+  - name: Configurando o banco de dados
+    shell: '. /home/ubuntu/tcc/venv/bin/activate; python /home/ubuntu/tcc/manage.py migrate '
+  - name: Carregando os dados iniciais
+    shell: '. /home/ubuntu/tcc/venv/bin/activate; python /home/ubuntu/tcc/manage.py loaddata clientes.json '
